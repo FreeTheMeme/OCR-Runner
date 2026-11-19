@@ -1,3 +1,5 @@
+
+version: '3.3'
 services:
   ollama:
     image: ollama/ollama:latest
@@ -10,6 +12,5 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
 volumes:
   ollama_data:

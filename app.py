@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 import ocr
 
-UPLOAD_FOLDER = '/Users/bigtin/code-repos/ocr runner/photos'
+UPLOAD_FOLDER = '/home/ocr/OCR-Runner/photos'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -46,6 +46,6 @@ def download_file(name):
 
 @app.route('/output/<name>')
 def output_text(name):
-    path = '/photos/'+name
+    path = os.path.join(app.config["UPLOAD_FOLDER"], name)
     text = ocr.ProcessImgage(path)
     return text

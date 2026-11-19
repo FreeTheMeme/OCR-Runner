@@ -3,7 +3,7 @@ from ollama import Client
 
 def ProcessImgage(path_to_image):
     client = Client(host="http://localhost:48564")
-    image_path = Path(__file__).with_name(path_to_image)
+    image_path = Path(path_to_image)
 
     response = client.chat(
         model="glm-ocr",
